@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasks_mvvm.R
+import com.example.tasks_mvvm.UI.listener.TaskClickListener
 import com.example.tasks_mvvm.databinding.ItemTaskBinding
 import com.example.tasks_mvvm.dto.TaskDto
 
-class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(val clickListener: TaskClickListener): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     private var dataset: List<TaskDto> = emptyList()
 
@@ -36,6 +37,7 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
         holder.binding.textDiscription.text = taskDto.description
         holder.binding.imageDone.setColorFilter(color)
+        holder.binding.imageDone.setOnClickListener{clickListener.clickDone(position)}
     }
 
     fun submitDataset(data: List<TaskDto>){

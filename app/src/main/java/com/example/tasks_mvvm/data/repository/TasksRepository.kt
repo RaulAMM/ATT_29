@@ -3,7 +3,8 @@ package com.example.tasks_mvvm.data.repository
 import com.example.tasks_mvvm.data.dao.TaskDao
 import com.example.tasks_mvvm.data.model.Task
 
-class TasksRepository {
+class
+TasksRepository {
     private val dao = TaskDao
 
     fun findAll(): List<Task>{
